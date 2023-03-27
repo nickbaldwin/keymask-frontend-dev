@@ -1,11 +1,12 @@
 #  KeyMask frontend demo
 
 Configured with:
-- Webpack
-- ESLint
-- Redux-bundler
+- Webpack (build)
+- ESLint (linting)
+- Redux-bundler (state and app logic)
 - Money-clip (local caching)
 - Internal-nav-helper (routing)
+- Jest (testing)
 
 It also has Prettier installed, but removed usage (in lint config)
 
@@ -14,7 +15,6 @@ It also has Prettier installed, but removed usage (in lint config)
 - // milliseconds
 - // query-string
 - // feather-route-matcher
-- // todo jest
 - // todo testing-library
 - // todo cypress
 
