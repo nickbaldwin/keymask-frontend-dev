@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <!-- polyfill for fetch etc-->
+        <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch,default,Array.prototype.find"></script>
+        <title>KeyMask App</title>
+    </head>
+    <body>
+        <script>
+            // logs debugging info into the console by default
+            // for production use, remove this (can still 'localStorage.debug = true' in the console)
+            localStorage.debug = true
+        </script>
+        <div id="root"></div>
+    </body>
+</html>
