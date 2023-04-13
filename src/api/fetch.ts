@@ -1,5 +1,5 @@
 export const baseExpressFetch = (param: string) => {
-    console.log('this was passed in to request: ' + param)
+    console.log('this was passed in to request: ' + param);
     return fetch('https://keymask-frontend-demo-api.vercel.app/secrets')
         // return fetch('https://express-vercel-livid.vercel.app/secrets') // personal
         // return fetch('http://localhost:3030/secrets'); // local
@@ -42,4 +42,4 @@ export const  basePostExpressFetch = (data = {}) => {
             console.log('post error', err);
             throw err;
         });
-}
+};

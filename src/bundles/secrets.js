@@ -66,7 +66,7 @@ export default {
             dispatch({type: 'FETCH_SECRETS_SUCCESS', payload});
         }).catch( (err) => {
             console.log(err);
-            dispatch({type: 'FETCH_SECRETS_FAILURE'})
+            dispatch({type: 'FETCH_SECRETS_FAILURE'});
         });
     },
     doPostSecret: (secret) => ({dispatch, postFetch}) => {

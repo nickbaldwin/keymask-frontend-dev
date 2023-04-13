@@ -44,7 +44,7 @@ const game = () => {
   const playerA = "A";
   const playerB = "B";
   return testModule.getWinner(playerA, playerB);
-}
+};
 
 
 describe('mock test suite', () => {
@@ -55,11 +55,11 @@ describe('mock test suite', () => {
     expect(testModule.getWinner).toBeCalledWith('A', 'B');
     expect(mocked.getWinner.mock.calls).toEqual([
       ['A', 'B']
-    ])
+    ]);
   });
 
   test('with override, mock should now return X instead of M', () => {
-    mocked.getWinner.mockImplementationOnce(() =>  'X')
+    mocked.getWinner.mockImplementationOnce(() =>  'X');
     const winner = game();
     expect(winner).toEqual('X');
   });
@@ -71,7 +71,7 @@ describe('mock test suite', () => {
     expect(mocked.getWinner.mock.calls).toEqual([
       ['A', 'B'],
       ['A', 'B']
-    ])
+    ]);
   });
 
 

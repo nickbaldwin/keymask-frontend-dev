@@ -39,7 +39,11 @@
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "no-shadow": ["error", {"builtinGlobals": false, "hoist": "functions", "allow": []}],
-    "endOfLine": "off"
+    "endOfLine": "off",
+
+  "quotes": ["warn", "single"],
+  "semi": ["warn", "always"]
+
   },
   "settings": {
     "react": {

@@ -11,9 +11,9 @@ cache.getAll()
         render(
             App(getStore(initialData)),
             document.getElementById('root')
-        )
+        );
     })
     .catch((err) => {
-        console.log('error getting cached data', err)
-    })
+        console.log('error getting cached data', err);
+    });
 

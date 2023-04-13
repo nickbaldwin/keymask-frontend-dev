@@ -14,14 +14,14 @@ const Form = ({doPostSecret}) => {
         if (field === 'value') {
             setValue(e.target.value);
         }
-    }
+    };
     const handleSubmit = (e) => {
         console.log(typeof e);
         e.preventDefault();
         setName('');
         setValue('');
         doPostSecret({name, value});
-    }
+    };
 
     return (
         <form onSubmit={handleSubmit}>
@@ -30,14 +30,14 @@ const Form = ({doPostSecret}) => {
             <input id="name"
                    type="text"
                    value={name}
-                   onChange={(e)=>{handleChange(e,'name')}}
+                   onChange={(e)=>{handleChange(e,'name');}}
             />
             <br />
             <label htmlFor="value" >secret</label>
             <input id="value"
                    type="text"
                    value={value}
-                   onChange={(e)=>{handleChange(e,'value')}}
+                   onChange={(e)=>{handleChange(e,'value');}}
             />
             <br />
             <input type="submit" value="Submit"/>
