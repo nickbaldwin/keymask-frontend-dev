@@ -7,7 +7,7 @@ const Form = ({doPostSecret}) => {
     const [value, setValue] = useState('');
 
     const handleChange = (e, field: string) => {
-        console.log("new value", e.target.value);
+        console.log('new value', e.target.value);
         if (field === 'name') {
             setName(e.target.value);
         }
@@ -28,16 +28,16 @@ const Form = ({doPostSecret}) => {
             <p>Enter a secret and a recipient</p>
             <label htmlFor="name" >email</label>
             <input id="name"
-                   type="text"
-                   value={name}
-                   onChange={(e)=>{handleChange(e,'name');}}
+                type="text"
+                value={name}
+                onChange={(e)=>{handleChange(e,'name');}}
             />
             <br />
             <label htmlFor="value" >secret</label>
             <input id="value"
-                   type="text"
-                   value={value}
-                   onChange={(e)=>{handleChange(e,'value');}}
+                type="text"
+                value={value}
+                onChange={(e)=>{handleChange(e,'value');}}
             />
             <br />
             <input type="submit" value="Submit"/>

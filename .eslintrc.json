@@ -41,9 +41,9 @@
     "no-shadow": ["error", {"builtinGlobals": false, "hoist": "functions", "allow": []}],
     "endOfLine": "off",
 
-  "quotes": ["warn", "single"],
-  "semi": ["warn", "always"]
-
+    "quotes": ["warn", "single"],
+    "semi": ["warn", "always"],
+    "indent": ["warn", 4]
   },
   "settings": {
     "react": {

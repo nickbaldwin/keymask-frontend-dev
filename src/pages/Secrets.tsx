@@ -1,6 +1,6 @@
 import {connect} from 'redux-bundler-react';
 import React from 'react';
-import Form from "components/Form";
+import Form from 'components/Form';
 import SecretsList from 'components/SecretsList';
 
 const Secrets = () => {

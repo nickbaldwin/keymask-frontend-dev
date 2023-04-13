@@ -4,7 +4,7 @@ import App from './app/App';
 import cache from './utils/cache';
 
 cache.getAll()
-     .then((initialData) => {
+    .then((initialData) => {
         if (initialData) {
             console.log('starting with locally cache data:', initialData);
         }

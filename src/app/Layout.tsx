@@ -1,6 +1,6 @@
 // todo typings
 import {getNavHelper}  from 'internal-nav-helper';
-import React from "react";
+import React from 'react';
 import {connect} from 'redux-bundler-react';
 
 import {navItems} from './nav';

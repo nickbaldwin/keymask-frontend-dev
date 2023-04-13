@@ -1,4 +1,4 @@
-import {baseExpressFetch, basePostExpressFetch} from "../api/fetch";
+import {baseExpressFetch, basePostExpressFetch} from '../api/fetch';
 
 export default {
     name: 'extra-args',

@@ -77,7 +77,7 @@ export default {
             // eslint-disable-next-line no-undef
             store.doFetchSecrets();
         }).catch( (err) => {
-            console.log("error posting secret in bundle");
+            console.log('error posting secret in bundle');
             console.log(err);
             dispatch({type: 'POST_SECRET_FAILURE'});
         });
