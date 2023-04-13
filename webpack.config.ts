@@ -13,6 +13,7 @@ const webpackConfig = (env): Configuration => ({
         plugins: [new TsconfigPathsPlugin()]
     },
     output: {
+        publicPath: '/',
         path: path.join(__dirname, "/dist"),
         filename: "build.js"
     },
