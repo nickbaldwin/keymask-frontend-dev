@@ -5,7 +5,7 @@ Configured with:
 - ESLint (linting)
 - Redux-bundler (state and app logic)
 - Money-clip (local caching)
-- Internal-nav-helper (routing)
+- Internal-nav-helper (routing) // todo - replace with react-router
 - Jest (testing)
 
 It also has Prettier installed, but removed usage (in lint config)
