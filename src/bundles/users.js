@@ -71,25 +71,14 @@ export default {
             dispatch({ type: 'LIST_USER_FAILURE' });
         });
     },
-
-    // { username: 'testName', password: 'testPassword', email: 'testEmail', publicKey: "testKey", randomUserKey: "testRandomKey" }
     doAddUser: (userData) => ({ dispatch, addUser }) => {
         dispatch({ type: 'ADD_USER_START' });
-
-
-        console.log('userData', userData);
-
-
         addUser(userData)
-            .then(() => {
-                return userData;
-            })
             .then((data) => {
                 dispatch({ type: 'ADD_USER_SUCCESS', payload: data });
-                // update our list of users
+                // now, update our list of users
                 // eslint-disable-next-line no-undef
                 store.doListUsers();
-
             })
             .catch((err) => {
                 console.log(JSON.stringify(err));

@@ -7,9 +7,9 @@ const AddUser = ({ doAddUser }) => {
 
     const handleSubmit = () => {
         doAddUser({
-            username: 'unique2',
-            password: 'unique2',
-            email: 'unique2',
+            username: 'unique4',
+            password: 'unique4',
+            email: 'unique4',
             publicKey: '-----BEGIN PUBLIC KEY-----key -----END PUBLIC KEY-----'
         });
     };

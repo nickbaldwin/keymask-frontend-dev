@@ -39,7 +39,6 @@ const calls = {
     'addUser': {
         path: '/addUser',
         getOptions: (data) : RequestInit => {
-            console.log(getOptions('POST', data));
             return getOptions('POST', data);
         }
     }
@@ -69,8 +68,6 @@ export const baseApiFetch = (params: CallParams) => {
 
     const options = calls[params.path].getOptions(params.data);
 
-    console.log('fetching', url, options);
-
     return fetch(url, options)
         .then(async response => {
             const isJson = response.headers.get('content-type')?.includes('application/json');
@@ -79,17 +76,12 @@ export const baseApiFetch = (params: CallParams) => {
             // check for error response
             if (!response.ok) {
                 console.log(response);
-                console.log(response.body);
-                console.log(response.headers);
-                console.log(data);
                 const error = (data && data.message) || response.status;
                 return Promise.reject(error);
             }
-
             return data;
         })
         .catch((err) => {
-            console.log(err);
             throw err;
         });
 };
