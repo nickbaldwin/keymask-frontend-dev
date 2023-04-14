@@ -1,45 +1,97 @@
-export const baseExpressFetch = (param: string) => {
-    console.log('this was passed in to request: ' + param);
-    return fetch('https://keymask-frontend-demo-api.vercel.app/secrets')
-    // return fetch('https://express-vercel-livid.vercel.app/secrets') // personal
-        // return fetch('http://localhost:3030/secrets'); // local
-        .then((res) => {
-            return res.json();
+
+// todo - these will need to be updated for prod use
+const tempOptions: RequestInit = {
+    method: 'GET',
+    mode: 'cors',
+    cache: 'no-cache',
+    credentials: 'omit',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    redirect: 'follow',
+    referrerPolicy: 'no-referrer',
+};
+
+
+
+// todo - use interface for data
+// todo - test what happens with no data passed in
+const getOptions = (method: string, data: object) : RequestInit => {
+    return ({
+        ...tempOptions,
+        method: method,
+        body: JSON.stringify(data)
+    });
+};
+
+// todo - use interface
+
+const calls = {
+
+    'listUsers': {
+        path: '/listUsers',
+        getOptions: () : RequestInit => {
+            return tempOptions;
+        }
+    },
+
+    // todo
+    'addUser': {
+        path: '/addUser',
+        getOptions: (data) : RequestInit => {
+            console.log(getOptions('POST', data));
+            return getOptions('POST', data);
+        }
+    }
+
+};
+
+
+interface CallParams {
+    path: string,
+    data?: object,
+    id?: string
+}
+
+export const baseApiFetch = (params: CallParams) => {
+
+    // todo - if any keys, tokens etc need to be passed in, this is where it can be done for all api calls
+
+    if (!calls[params.path]) {
+        console.log('no api endpoint');
+        return null;
+    }
+
+    let url = `https://keymask-backend-demo.fly.dev/${params.path}`;
+    if (params.id) {
+        url += '/' + params.id;
+    }
+
+    const options = calls[params.path].getOptions(params.data);
+
+    console.log('fetching', url, options);
+
+    return fetch(url, options)
+        .then(async response => {
+            const isJson = response.headers.get('content-type')?.includes('application/json');
+            const data = isJson ? await response.json() : null;
+
+            // check for error response
+            if (!response.ok) {
+                console.log(response);
+                console.log(response.body);
+                console.log(response.headers);
+                console.log(data);
+                const error = (data && data.message) || response.status;
+                return Promise.reject(error);
+            }
+
+            return data;
         })
         .catch((err) => {
+            console.log(err);
             throw err;
         });
 };
 
 
-export const  basePostExpressFetch = (data = {}) => {
-    // options shown for fetch request
-    // default options are marked with *
-    const options: RequestInit = {
-        method: 'POST', // *GET, POST, PUT, DELETE, etc.
-        mode: 'cors', // no-cors, *cors, same-origin
-        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-        credentials: 'same-origin', // include, *same-origin, omit
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        redirect: 'follow', // manual, *follow, error
-        referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-        body: JSON.stringify(data), // body data type must match "Content-Type" header
-    };
-
-
-    // todo - will not post yet
-    return fetch('https://keymask-frontend-demo-api.vercel.app/newsecret', options)
-        //  return fetch('https://express-vercel-livid.vercel.app/newsecret', options) // personal
-        // return fetch('http://localhost:3030/api/secrets'); // local
-        .then((res) => {
-            const r = res.json();
-            console.log('post success', r);
-            return r;
-        })
-        .catch((err) => {
-            console.log('post error', err);
-            throw err;
-        });
-};

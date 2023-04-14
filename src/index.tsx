@@ -1,4 +1,4 @@
-import {render} from 'react-dom';
+import * as ReactDOMClient from 'react-dom/client';
 import getStore from './bundles';
 import App from './app/App';
 import cache from './utils/cache';
@@ -8,10 +8,8 @@ cache.getAll()
         if (initialData) {
             console.log('starting with locally cache data:', initialData);
         }
-        render(
-            App(getStore(initialData)),
-            document.getElementById('root')
-        );
+        const root = ReactDOMClient.createRoot(document.getElementById('root'));
+        root.render(App(getStore(initialData)));
     })
     .catch((err) => {
         console.log('error getting cached data', err);

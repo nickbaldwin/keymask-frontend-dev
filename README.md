@@ -7,24 +7,23 @@ Configured with:
 - Money-clip (local caching)
 - Internal-nav-helper (routing) // todo - replace with react-router
 - Jest (testing)
+- Testing-library (testing)
 
 It also has Prettier installed, but removed usage (in lint config)
 
-- // todo immer or sinks (updating immutable state objects and arrays) 
-- // todo testing-library
-- // todo cypress
-- // redux-persist-middleware?
+- // todo immer (easier immutable state updates)
+- // todo cypress (e2e testing)
+- // redux-persist-middleware? (think redux-bundler does this)
 - // todo? milliseconds or moment etc
-- // todo? query-string?
-- // todo? feather-route-matcher (routing)
+- // todo? query-string? feather-route-matcher (routing params)?
 
 
 Alternatives:
 
 - React-query/SWR
-- React Router
-- Parcel
-- Babel
+- Parcel / remix one? (build)
+- Babel (transpiling)
+- axios
 
 
 ## Notes
@@ -39,8 +38,33 @@ vercel.json is used if/when hosting the app with Vercel - it simply tells the 'w
 
 using basic config of webpack - with no babel - may need to rethink this, but good if it can be avoided and kept simple
 
+### redux-bundler
 
-## Jest
+
+
+### jest: testing framework [docs](https://jestjs.io/docs/getting-started)
+
+#### installed libraries
+
+> npm install --save-dev jest ts-jest jest-environment-jsdom eslint-plugin-jest-dom @jest/globals @types/jest
+
+### testing-library: 'dom' testing library [docs](https://testing-library.com/docs/)
+
+#### installed libraries
+
+> npm install --save-dev @testing-library/react @testing-library/jest-dom @testing-library/user-event eslint-plugin-testing-library
+
+
+
+### react router
+
+#### installed libraries
+
+> npm install --save-dev react-router-dom @types/react-router-dom
+
+
+
+### Jest
 
 https://jestjs.io/
 

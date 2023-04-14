@@ -1,4 +1,11 @@
-import {createRouteBundle} from 'redux-bundler';
-import {routes} from '../app/nav.ts';
+import { createRouteBundle } from 'redux-bundler';
+import Home from '../pages/Home';
+import UserAccount from '../pages/UserAccount';
+import Share from '../pages/Share';
 
-export default createRouteBundle(routes);
+// todo - useful (react router dealing with routing)? or remove?
+export default createRouteBundle({
+    '/': Home,
+    '/about': UserAccount,
+    '/share': Share
+});

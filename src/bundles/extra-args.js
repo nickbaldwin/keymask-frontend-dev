@@ -1,4 +1,4 @@
-import {baseExpressFetch, basePostExpressFetch} from '../api/fetch';
+import {baseApiFetch} from '../api/fetch';
 
 export default {
     name: 'extra-args',
@@ -8,14 +8,12 @@ export default {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     getExtraArgs: (store) => {
         return {
-            expressFetch: () => {
-                // reference stuff from store here... pass into api calls
-                return baseExpressFetch('hi this is a param on get');
+            listUsers: () => {
+                // to get something
+                return baseApiFetch({path: 'listUsers'});
             },
-            // pass in object
-            postFetch: (data) => {
-                // reference stuff from store here... pass into api calls
-                return basePostExpressFetch(data);
+            addUser: (data) => {
+                return baseApiFetch({path: 'addUser', data});
             }
         };
     }
